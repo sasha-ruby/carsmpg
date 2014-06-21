@@ -22,17 +22,13 @@ shinyServer(function(input, output) {
     })
     
     output$plotmpgvscyl <- renderPlot({
-#         mtcarsSub <- subset(mtcars, cyl == input$cylinders & gear == input$gears)
-#         mns <- mean(mtcarsSub$mpg)
         plot(mtcars$cyl, mtcars$mpg, col="blue", xlab = "Number of cylinders", ylab = "Miles per gallon")
-#         abline(lm(mtcars$mpg ~ mtcars$cyl + mtcars$gear), col="blue", lwd=1)
         lines(c(4, 8), c(mn, mn), col="darkgrey", lwd=2)
         lines(c(4, 8), c(mns(), mns()), col="red", lwd=2)
     })
 
     output$plotmpgvsgear <- renderPlot({
         plot(mtcars$gear, mtcars$mpg, col="blue", xlab = "Number of gears", ylab = "Miles per gallon")
-#         abline(lm(mtcars$mpg ~ mtcars$cyl + mtcars$gear), col="blue", lwd=1)
         lines(c(3, 5), c(mn, mn), col="darkgrey", lwd=2)
         lines(c(3, 5), c(mns(), mns()), col="red", lwd=2)
     })
